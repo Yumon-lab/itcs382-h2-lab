@@ -37,9 +37,7 @@ The parcels maybe stored somewhere in the program which is connected to the stor
 ParcelService service = new ParcelService(repository);
 ```
 
-0.6 Commit of the switch to H2:
-import parcelpoint.storage.H2ParcelRepository;
-ParcelRepository repository = new H2ParcelRepository("./data/parcelpoint");
+0.6 Commit of the switch to H2:94bc8ec
 
 0.7 Output of `SELECT * FROM PARCEL;` after you stored two parcels:
 
@@ -82,7 +80,7 @@ From some inspection, it can be assume that findbycode Method from H2 is taken d
     }
 ```
 
-Commit that adds findAll:
+Commit that adds findAll:dda4456
 
 0.12 Output of `SELECT * FROM PARCEL;` after the pickup:
 
