@@ -44,17 +44,42 @@ ParcelRepository repository = new H2ParcelRepository("./data/parcelpoint");
 0.7 Output of `SELECT * FROM PARCEL;` after you stored two parcels:
 
 ```text
-
+sql> SELECT * FROM PARCEL;
+CODE  | STUDENT_ID | PARCEL_SIZE | STATUS | LOCKER_NUMBER
+P1001 | S1001      | SMALL       | STORED | 1
+P1002 | S1002      | LARGE       | STORED | 3
+(2 rows, 20 ms)
+sql> 
 ```
 
 0.8 Explain why ParcelPoint could not start while the H2 Shell was open, and identify the class that wrote the message `Cannot create the PARCEL table`.
 
+ParcelPoint can't start because the database belong to the program that open it and that class is public H2ParcelRepository(String path)
+
+
 0.9 Explain why `staff` shows no parcel while `find` shows each one, and why all three lockers look free.
+
+From some inspection, it can be assume that findbycode Method from H2 is taken directly from database but if look at Parcel Service, it does not seem to take the database number into account so it ended up using empty database instead, resulting in all 3 lockers being free.
 
 0.11 Your findAll method:
 
 ```java
-
+ @Override
+    public List<Parcel> findAll() {
+        String sql = "SELECT * FROM PARCEL ORDER BY CODE";
+        List<Parcel> parcels = new ArrayList<>();
+        try (Connection connection = connect();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            try (ResultSet row = statement.executeQuery()) {
+               while (row.next()){
+                 parcels.add(toParcel(row));
+               }
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException("Cannot read the parcels", e);
+        }
+        return parcels;
+    }
 ```
 
 Commit that adds findAll:
