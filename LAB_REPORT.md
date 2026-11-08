@@ -95,6 +95,22 @@ sql>
 
 0.13 Optional. Describe what `find P9999'OR'1'='1` showed while the SQL was joined from strings, and what it showed after you put the placeholder back.
 
+when SQL was joined from strings:
+ find <code>
+  staff
+  quit
+> find P9999
+No parcel with code P9999
+> find P9999'OR'1'='1
+No parcel with code P9999'OR'1'='1
+> find P9999'OR'1'='1'
+
+When SQL return to normal
+> find P9999'OR'1'='1'
+No parcel with code P9999'OR'1'='1'
+
+Apprarently, without placeholder, the program is vulnerable to SQL injection but in this case can't find the parcel or breach it. 
+
 ## Part A. Model the design
 
 A1 Complete the flowchart with one node for each package and one arrow for each dependency, from the package that uses to the package that is used. Mark the package that accesses the data store.
