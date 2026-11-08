@@ -38,6 +38,8 @@ ParcelService service = new ParcelService(repository);
 ```
 
 0.6 Commit of the switch to H2:
+import parcelpoint.storage.H2ParcelRepository;
+ParcelRepository repository = new H2ParcelRepository("./data/parcelpoint");
 
 0.7 Output of `SELECT * FROM PARCEL;` after you stored two parcels:
 
