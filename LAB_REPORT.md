@@ -85,7 +85,12 @@ Commit that adds findAll:dda4456
 0.12 Output of `SELECT * FROM PARCEL;` after the pickup:
 
 ```text
-
+sql> SELECT * FROM PARCEL;
+CODE  | STUDENT_ID | PARCEL_SIZE | STATUS    | LOCKER_NUMBER
+P1001 | S1001      | SMALL       | PICKED_UP | null
+P1002 | S1002      | LARGE       | STORED    | 3
+(2 rows, 31 ms)
+sql> 
 ```
 
 0.13 Optional. Describe what `find P9999'OR'1'='1` showed while the SQL was joined from strings, and what it showed after you put the placeholder back.
