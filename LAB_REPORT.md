@@ -1,34 +1,40 @@
 # Lab Report, Designing the Data Management Layer with H2
 
-Repository URL:
+Repository URL: https://github.com/Yumon-lab/itcs382-h2-lab
 
 ## Tools
 
 | Item | Version or name |
 | --- | --- |
-| JDK | |
-| Maven | |
-| IDE | |
+| JDK | 25.0.4.1 |
+| Maven | 3.10.0 |
+| IDE | 1.143.1 |
 | AI tool and exact model, if you used one | |
 
 ## Part 0. From a store in memory to H2
 
-Commit of the starter, before any change:
+Commit of the starter, before any change: 3fb5044
 
 0.3 Your prediction for `staff`, written before the second run:
+P1001, S1001, SMALL, STORED, locker 1
+P1002, S1002, LARGE, STORED, locker 3
+Free lockers: 1
 
 Output of the second run, for `staff` and `quit`:
 
 ```text
-
+Free lockers: 3
 ```
 
 State in one sentence where you think the parcels of the first run were kept.
+```text
+The parcels maybe stored somewhere in the program which is connected to the store commands, what is important is it is not saved and thus when we run the program against, the data is gone and all the lockers is free. 
+```
 
 0.5 The line of Main that you would change to keep the parcels somewhere else:
 
 ```java
-
+ParcelService service = new ParcelService(repository);
 ```
 
 0.6 Commit of the switch to H2:
