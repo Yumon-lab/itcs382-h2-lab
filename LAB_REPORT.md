@@ -9,7 +9,7 @@ Repository URL: https://github.com/Yumon-lab/itcs382-h2-lab
 | JDK | 25.0.4.1 |
 | Maven | 3.10.0 |
 | IDE | 1.143.1 |
-| AI tool and exact model, if you used one | |
+| AI tool and exact model, if you used one | ChatGPT GPT-6 |
 
 ## Part 0. From a store in memory to H2
 
